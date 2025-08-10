@@ -1,0 +1,66 @@
+@import "tailwindcss";
+/* Reviews slider container */
+.reviews-slider {
+  position: relative;
+  display: flex;
+  gap: 24px;               /* same as gap-6 */
+  overflow-x: auto;
+  overflow-y: hidden;      /* hide vertical scrollbar */
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;      /* Firefox */
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0 auto;
+  height: auto;              /* allow full card height */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.reviews-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each review card */
+.review-card {
+  flex: 0 0 calc((100% - 24px) / 2); /* exactly two cards per view */
+  max-width: calc((100% - 24px) / 2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 1.5rem;
+  scroll-snap-align: start;
+  height: auto;                   /* auto height for full content */
+  background: white;              /* fallback, overridden inline with gradient */
+}
+
+/* Speech bubble arrow at bottom */
+.speech-arrow {
+  position: absolute;
+  bottom: -15px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-top: 15px solid;
+}
+
+/* Video reviews container - layout handled by Tailwind flex in JSX */
+
+/* Video slot iframe styling */
+.video-slot iframe {
+  border-radius: 1rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive: On small screens show one review card per view and stack videos vertically */
+@media (max-width: 640px) {
+  .review-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .video-reviews {
+    flex-direction: column;
+  }
+}
