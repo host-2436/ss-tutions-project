@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Right side: social icons with PNG */}
         <div className="flex gap-6">
           <a
-            href="https://www.instagram.com/yourprofile"
+            href="https://www.instagram.com/ss_tuitions_?igsh=d29jbXF5aDUybnBy"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
@@ -26,7 +26,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/7799891976"
             target="_blank"
             rel="noreferrer"
             aria-label="WhatsApp"

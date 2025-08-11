@@ -152,17 +152,17 @@ export default function ContactUs() {
             <p className="mb-4 text-gray-700">
               <strong>Phone:</strong>{" "}
               <a
-                href="tel:+919876543210"
+                href="tel:+917799891976"
                 className="text-[#345ba0] hover:underline"
               >
-                +91 98765 43210
+                +91 7799891976
               </a>
             </p>
 
             
             <div className="flex gap-6 mt-6">
   <a
-    href="https://www.instagram.com/yourprofile"
+    href="https://www.instagram.com/ss_tuitions_?igsh=d29jbXF5aDUybnBy"
     target="_blank"
     rel="noreferrer"
     aria-label="Instagram"
@@ -178,7 +178,7 @@ export default function ContactUs() {
   </a>
 
   <a
-    href="https://wa.me/919876543210"
+    href="https://wa.me/7799891976"
     target="_blank"
     rel="noreferrer"
     aria-label="WhatsApp"

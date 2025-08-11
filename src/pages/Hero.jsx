@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Left Content */}
       <div className="max-w-3xl  mx-10">
         <h1 className="text-xl md:text-8xl font-bold leading-tight">
-          <span className="text-[#f46173]">SS TUTIONS</span>
+          <span className="text-[#f46173]">SS TUITIONS</span>
         </h1>
         <h1 className="text-2xl md:text-4xl font-bold text-[#4f4d4e] leading-tight pt-2 pb-1">
           Provides <span className="text-[#345ba0]"> BEST</span> and <span className="text-[#345ba0]">FRIENDLY</span> Tutors

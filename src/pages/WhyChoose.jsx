@@ -9,7 +9,7 @@ const points = [
     description: "Learn from anywhere or attend in-person sessions for maximum flexibility."
   },
   {
-    title: "1 Tutor : 2 Students",
+    title: "1 Tutor : 1 Students",
     icon: <FaUsers className="text-6xl" />,
     description: "Highly personalized attention with a 1:2 tutor-student ratio."
   },

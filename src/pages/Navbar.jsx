@@ -34,17 +34,6 @@ const Navbar = () => {
 
           {/* Navigation */}
           <ul className="hidden md:flex space-x-6 font-medium text-[#4f4d4e]">
-            <li>
-                <Link
-                    to="/"
-                    className="relative group"
-                >
-                <span className="transition-colors duration-300 group-hover:text-[#345ba0]">
-                  HOME
-                </span>
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#345ba0] transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-            </li>
 
             {/* About Us Dropdown */}
             <li

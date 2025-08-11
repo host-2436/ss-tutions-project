@@ -1,78 +1,47 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { supabase } from "../components/Supabase";
 export default function TutorForm() {
-  const [formData, setFormData] = useState({
-    tutorName: "",
-    collegeName: "",
-    email: "",
-    phoneNumber: "",
-    subjects: "",
-    availableTime: "",
-    location: "",
-    experience: "",
-    styleGoal: "",
-  });
+   const [tutorName, setTutorName] = useState('');
+  const [collegename, setCollegeName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [subjects, setSubjects] = useState('');
+  const [availableTime, setAvailableTime] = useState('');
+  const [location, setLocation] = useState('');
+  const [about, setAbout] = useState('');
 
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-
-  const validate = () => {
-    const errs = {};
-    if (!formData.tutorName.trim()) errs.tutorName = "Tutor name is required";
-    if (!formData.collegeName.trim()) errs.collegeName = "College name is required";
-
-    if (!formData.email.trim()) errs.email = "Email is required";
-    else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email.trim())
-    )
-      errs.email = "Invalid email address";
-
-    if (!formData.phoneNumber.trim()) errs.phoneNumber = "Phone number is required";
-    else if (!/^\d{10,15}$/.test(formData.phoneNumber.trim()))
-      errs.phoneNumber = "Phone number should be 10-15 digits";
-
-    if (!formData.subjects.trim()) errs.subjects = "Subjects are required";
-    if (!formData.availableTime.trim()) errs.availableTime = "Available time is required";
-    if (!formData.location.trim()) errs.location = "Location is required";
-    if (!formData.experience.trim()) errs.experience = "Please tell us about your experience";
-    if (!formData.styleGoal.trim()) errs.styleGoal = "Please share your teaching style and goal";
-
-    return errs;
-  };
-
-  const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    setErrors(prev => ({ ...prev, [e.target.name]: null }));
-    setSubmitted(false);
-  };
-
-  const handleSubmit = (e) => {
+  async function handleSubmit(e){
     e.preventDefault();
+    const {data,error}=await supabase.from('recruitment').insert([
+            {
+            name: tutorName,
+            college: collegename,
+            email: email,
+            number: phone,
+            subjects:subjects,
+            time: availableTime,
+            location: location,
+            info: about,
+            }
+        ])
 
-    const errs = validate();
-    if (Object.keys(errs).length) {
-      setErrors(errs);
-      setSubmitted(false);
-      return;
+    if(error)
+    {
+        alert("Something went wrong try after few minutes")
+        console.log(error)
+        return
     }
+    alert('Thank you for applying! Our team will reach you in no time.');
 
-    // TODO: Submit formData to backend or API here
-
-    setSubmitted(true);
-    setFormData({
-      tutorName: "",
-      collegeName: "",
-      email: "",
-      phoneNumber: "",
-      subjects: "",
-      availableTime: "",
-      location: "",
-      experience: "",
-      styleGoal: "",
-    });
+    setTutorName('');
+    setEmail('');
+    setPhone('');
+    setSubjects('');
+    setAvailableTime('');
+    setLocation('');
+    setAbout('');
   };
-
   return (
     <section className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg mt-12">
        {/* Home button at very top right corner, no top gap */}
@@ -90,7 +59,7 @@ export default function TutorForm() {
         Tutor Application Form
       </h2>
 
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={(e)=>handleSubmit(e)} noValidate>
         {/* Tutor Name */}
         <div className="mb-6">
           <label htmlFor="tutorName" className="block mb-2 font-semibold text-gray-700">
@@ -100,14 +69,15 @@ export default function TutorForm() {
             type="text"
             id="tutorName"
             name="tutorName"
-            value={formData.tutorName}
-            onChange={handleChange}
+            value={tutorName}
+            onChange={(e)=>setTutorName(e.target.value)}
+            required
             placeholder="Your full name"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.tutorName ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              tutorName ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.tutorName && <p className="text-red-600 mt-1 text-sm">{errors.tutorName}</p>}
+          
         </div>
 
         {/* College Name */}
@@ -119,14 +89,15 @@ export default function TutorForm() {
             type="text"
             id="collegeName"
             name="collegeName"
-            value={formData.collegeName}
-            onChange={handleChange}
+            value={collegename}
+            onChange={(e)=>setCollegeName(e.target.value)}
+             required 
             placeholder="Your college or university"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.collegeName ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              collegename ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.collegeName && <p className="text-red-600 mt-1 text-sm">{errors.collegeName}</p>}
+          
         </div>
 
         {/* Email */}
@@ -138,14 +109,15 @@ export default function TutorForm() {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
+            required
             placeholder="Your email address"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.email ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              email ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.email && <p className="text-red-600 mt-1 text-sm">{errors.email}</p>}
+          
         </div>
 
         {/* Phone Number */}
@@ -154,17 +126,18 @@ export default function TutorForm() {
             Phone Number
           </label>
           <input
-            type="tel"
+            type="text"
             id="phoneNumber"
             name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
+            value={phone}
+            onChange={(e)=>setPhone(e.target.value)}
+             required 
             placeholder="10 to 15 digit phone number"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.phoneNumber ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              phone ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.phoneNumber && <p className="text-red-600 mt-1 text-sm">{errors.phoneNumber}</p>}
+        
         </div>
 
         {/* Subjects */}
@@ -176,14 +149,15 @@ export default function TutorForm() {
             type="text"
             id="subjects"
             name="subjects"
-            value={formData.subjects}
-            onChange={handleChange}
+            value={subjects}
+            onChange={(e)=>setSubjects(e.target.value)}
+             required 
             placeholder="E.g., Math, English"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.subjects ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              subjects ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.subjects && <p className="text-red-600 mt-1 text-sm">{errors.subjects}</p>}
+         
         </div>
 
         {/* Available Time */}
@@ -195,14 +169,15 @@ export default function TutorForm() {
             type="text"
             id="availableTime"
             name="availableTime"
-            value={formData.availableTime}
-            onChange={handleChange}
+            value={availableTime}
+            onChange={(e)=>setAvailableTime(e.target.value)}
+             required 
             placeholder="E.g., Weekdays 4-6 PM"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.availableTime ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              availableTime ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.availableTime && <p className="text-red-600 mt-1 text-sm">{errors.availableTime}</p>}
+          
         </div>
 
         {/* Location */}
@@ -214,53 +189,37 @@ export default function TutorForm() {
             type="text"
             id="location"
             name="location"
-            value={formData.location}
-            onChange={handleChange}
+            value={location}
+            onChange={(e)=>setLocation(e.target.value)}
+             required 
             placeholder="Your city or area"
             className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 ${
-              errors.location ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              location ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.location && <p className="text-red-600 mt-1 text-sm">{errors.location}</p>}
+          
         </div>
 
         {/* Experience */}
         <div className="mb-6">
           <label htmlFor="experience" className="block mb-2 font-semibold text-gray-700">
-            Tell us about your Experience
+            About Yourself
           </label>
           <textarea
             id="experience"
             name="experience"
             rows="4"
-            value={formData.experience}
-            onChange={handleChange}
-            placeholder="Share your tutoring experience"
+            value={about}
+            onChange={(e)=>setAbout(e.target.value)}
+             required 
+            placeholder="About"
             className={`w-full px-4 py-3 border rounded-md resize-none focus:outline-none focus:ring-2 ${
-              errors.experience ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
+              about ? "border-green-500 focus:ring-green-400" : "border-gray-300 focus:ring-[#345ba0]"
             }`}
           />
-          {errors.experience && <p className="text-red-600 mt-1 text-sm">{errors.experience}</p>}
         </div>
 
-        {/* Style and Goal */}
-        <div className="mb-6">
-          <label htmlFor="styleGoal" className="block mb-2 font-semibold text-gray-700">
-            Style and Goal
-          </label>
-          <textarea
-            id="styleGoal"
-            name="styleGoal"
-            rows="4"
-            value={formData.styleGoal}
-            onChange={handleChange}
-            placeholder="Tell us about your teaching style and goals"
-            className={`w-full px-4 py-3 border rounded-md resize-none focus:outline-none focus:ring-2 ${
-              errors.styleGoal ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-[#345ba0]"
-            }`}
-          />
-          {errors.styleGoal && <p className="text-red-600 mt-1 text-sm">{errors.styleGoal}</p>}
-        </div>
+    
 
         {/* Submit button */}
         <button
@@ -270,12 +229,6 @@ export default function TutorForm() {
           Submit
         </button>
 
-        {/* Submission success message */}
-        {submitted && (
-          <p className="mt-6 text-center text-green-600 font-semibold">
-            Form submitted successfully! We will contact you soon.
-          </p>
-        )}
       </form>
     </section>
   );
