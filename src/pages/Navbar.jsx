@@ -59,7 +59,7 @@ const Navbar = () => {
                 <ul className="absolute left-0 mt-2 bg-white border shadow-lg rounded-md w-48 text-sm">
                   <li><a href="#why" className="block px-4 py-2 hover:bg-blue-50">Why Choose</a></li>
                   <li><a href="#offer" className="block px-4 py-2 hover:bg-blue-50">What We Offer</a></li>
-                  <li><a href="#tutors" className="block px-4 py-2 hover:bg-blue-50">Tutors</a></li>
+                  
                 </ul>
               )}
             </li>
@@ -101,7 +101,6 @@ const Navbar = () => {
                 <ul className="ml-4 mt-1 space-y-1">
                   <li><a href="#why" onClick={() => setMobileMenuOpen(false)}>Why Choose</a></li>
                   <li><a href="#offer" onClick={() => setMobileMenuOpen(false)}>What We Offer</a></li>
-                  <li><a href="#tutors" onClick={() => setMobileMenuOpen(false)}>Tutors</a></li>
                 </ul>
               )}
             </li>
