@@ -38,7 +38,7 @@ export default function FAQ() {
   return (
     <section className="mt-19 bg-gradient-to-br from-white to-[#f8f8f8] ">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-[#345ba0]">
+        <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-[#345ba0]">
           Frequently Asked Questions
         </h2>
 

@@ -63,7 +63,7 @@ export default function Reviews() {
   return (
     <section className="py-16 mt-20 bg-gradient-to-br from-white to-[#f8f8f8]">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-10 text-[#345ba0]">
+        <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-center mb-10 text-[#345ba0]">
           What Our Students Say
         </h2>
 
@@ -89,34 +89,7 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="video-reviews mt-16 flex gap-8 flex-col md:flex-row justify-center">
-          <div
-            className="video-slot flex-1 max-w-md rounded-2xl shadow-lg overflow-hidden border-4 border-[#345ba0]"
-            style={{ minHeight: "320px", backgroundColor: "white" }}
-          >
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Video Review 1"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-          <div
-            className="video-slot flex-1 max-w-md rounded-2xl shadow-lg overflow-hidden border-4 border-[#f46173]"
-            style={{ minHeight: "320px", backgroundColor: "white" }}
-          >
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/oHg5SJYRHA0"
-              title="Video Review 2"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </div>
+        
       </div>
     </section>
   );

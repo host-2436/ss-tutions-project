@@ -44,7 +44,7 @@ export default function ContactUs() {
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12">
         {/* Contact Form */}
         <div className="flex-1 bg-white p-8 rounded-xl shadow-lg">
-          <h2 className="text-4xl font-bold mb-8 text-[#f46173] text-center md:text-left">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold mb-8 text-[#f46173] text-center md:text-left">
             Contact Us
           </h2>
 
@@ -143,7 +143,7 @@ export default function ContactUs() {
         <div className="flex-1 flex flex-col gap-8">
           {/* Contact Info */}
           <div className="bg-white p-8 rounded-xl shadow-lg text-gray-700">
-            <h3 className="text-3xl font-bold mb-6 text-[#345ba0]">
+            <h3 className="text-3xl sm:text-3xl md:text-3xl font-bold mb-6 text-[#345ba0]">
               Our Contact Info
             </h3>
             <p className="mb-4 text-gray-700">

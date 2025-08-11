@@ -55,7 +55,7 @@ export default function StudentForm() {
           Home
         </Link>
       </div>
-      <h2 className="text-4xl font-bold mb-8 text-[#345ba0] text-center">
+      <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold mb-8 text-[#345ba0] text-center">
         Student Registration Form
       </h2>
       <form onSubmit={(e)=>handleSubmit(e)} noValidate>

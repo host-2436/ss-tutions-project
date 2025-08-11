@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import WhyChoose from './WhyChoose';
 import WhatWeOffer from './WhatWeOffer';
-import MeetTutors from './MeetTutors';
 import Reviews from './Reviews';
 import Blogs from './Blogs';
 import FAQ from './Faq';
@@ -19,7 +18,6 @@ const Home = () => {
         <Hero/>
         <div id="why"><WhyChoose/></div>
         <div id="what"><WhatWeOffer/></div>
-        <div id="tutors"><MeetTutors/></div>
         <div id="reviews"><Reviews/></div>
         <div id="blogs"><Blogs/></div>
         <div id="faq"><FAQ/></div>

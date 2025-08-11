@@ -37,7 +37,7 @@ export default function Blogs() {
   return (
     <section className="py-16 mt-10 bg-gradient-to-br from-white to-[#f8f8f8]">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-10 text-[#f46173]">
+        <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-center mb-10 text-[#f46173]">
           Latest Blogs
         </h2>
 

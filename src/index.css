@@ -33,26 +33,9 @@
   background: white;              /* fallback, overridden inline with gradient */
 }
 
-/* Speech bubble arrow at bottom */
-.speech-arrow {
-  position: absolute;
-  bottom: -15px;
-  left: 40px;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-top: 15px solid;
-}
 
-/* Video reviews container - layout handled by Tailwind flex in JSX */
 
-/* Video slot iframe styling */
-.video-slot iframe {
-  border-radius: 1rem;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+
 
 /* Responsive: On small screens show one review card per view and stack videos vertically */
 @media (max-width: 640px) {
@@ -60,7 +43,5 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .video-reviews {
-    flex-direction: column;
-  }
+  
 }
