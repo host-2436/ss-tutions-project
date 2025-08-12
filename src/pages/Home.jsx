@@ -7,7 +7,7 @@ import WhyChoose from './WhyChoose';
 import WhatWeOffer from './WhatWeOffer';
 import Reviews from './Reviews';
 import Blogs from './Blogs';
-import FAQ from './Faq';
+import FAQ from './FAQ';
 import ContactUs from './ContactUs';
 import Footer from './Footer';
 
